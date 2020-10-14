@@ -7,6 +7,7 @@ import User from '../views/User.vue'
 import Edit from '../views/Edit.vue'
 import MyFollow from '../views/MyFollow.vue'
 import MyComments from '../views/MyComments.vue'
+import MyStar from '../views/MyStar.vue'
 import { Toast } from 'vant'
 
 Vue.use(VueRouter)
@@ -17,11 +18,12 @@ const router = new VueRouter({
     { path: '/', redirect: '/login' },
     // 不暴露参数的处理情况 给route添加name
     { path: '/login', name: 'login', component: Login },
-    { path: '/register', name: 'register', component: Register },
-    { path: '/user', name: 'user', component: User },
-    { path: '/edit', name: 'edit', component: Edit },
-    { path: '/myfollow', name: 'myfollow', component: MyFollow },
-    { path: '/mycomments', name: 'mycomments', component: MyComments },
+    { path: '/register', component: Register },
+    { path: '/user', component: User },
+    { path: '/edit', component: Edit },
+    { path: '/myfollow', component: MyFollow },
+    { path: '/mycomments', component: MyComments },
+    { path: '/mystar', component: MyStar },
   ],
 })
 
