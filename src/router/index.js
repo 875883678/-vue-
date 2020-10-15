@@ -8,6 +8,7 @@ import Edit from '../views/Edit.vue'
 import MyFollow from '../views/MyFollow.vue'
 import MyComments from '../views/MyComments.vue'
 import MyStar from '../views/MyStar.vue'
+import Home from '../views/Home.vue'
 import { Toast } from 'vant'
 
 Vue.use(VueRouter)
@@ -15,7 +16,7 @@ Vue.use(VueRouter)
 // 注册的全局路由实例
 const router = new VueRouter({
   routes: [
-    { path: '/', redirect: '/login' },
+    { path: '/', redirect: '/home' },
     // 不暴露参数的处理情况 给route添加name
     { path: '/login', name: 'login', component: Login },
     { path: '/register', component: Register },
@@ -24,6 +25,7 @@ const router = new VueRouter({
     { path: '/myfollow', component: MyFollow },
     { path: '/mycomments', component: MyComments },
     { path: '/mystar', component: MyStar },
+    { path: '/home', component: Home },
   ],
 })
 
