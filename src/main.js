@@ -34,6 +34,9 @@ import {
   Radio,
   Uploader,
   List,
+  Tab,
+  Tabs,
+  PullRefresh,
 } from 'vant'
 
 // 输入框组件
@@ -53,6 +56,11 @@ Vue.use(Radio)
 Vue.use(Uploader)
 // 列表组件(分页器)
 Vue.use(List)
+// tab栏组件
+Vue.use(Tab)
+Vue.use(Tabs)
+// 下拉刷新组件
+Vue.use(PullRefresh)
 
 // 注册全局过滤器
 // 引入moment模块

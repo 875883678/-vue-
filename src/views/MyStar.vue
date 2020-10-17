@@ -1,7 +1,7 @@
 <template>
   <div class="mystar">
     <hm-header>我的收藏</hm-header>
-    <hm-post v-for="item in postList" :item="item" :key="item.id"></hm-post>
+    <hm-post v-for="post in postList" :post="post" :key="post.id"></hm-post>
   </div>
 </template>
 

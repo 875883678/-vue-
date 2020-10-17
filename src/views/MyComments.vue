@@ -7,7 +7,6 @@
       v-model="loading"
       @load="onLoad"
       :immediate-check="false"
-      offset="50"
     >
       <div class="item" v-for="item in list" :key="item.id">
         <div class="date">
