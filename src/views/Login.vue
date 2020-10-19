@@ -116,8 +116,13 @@ export default {
           // 提示
           this.$toast.success(message)
 
-          // 跳转
-          this.$router.push('/user')
+          // console.log(this.$route)
+          if (this.$route.params.back) {
+            this.$router.back()
+          } else {
+            // 跳转
+            this.$router.push('/user')
+          }
         } else {
           this.$toast.fail(message)
         }
