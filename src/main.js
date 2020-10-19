@@ -16,12 +16,16 @@ import HmHeader from './components/HmHeader.vue'
 import HmLogo from './components/HmLogo.vue'
 import HmButton from './components/HmButton.vue'
 import HmPost from './components/HmPost.vue'
+import HmComments from './components/HmComments.vue'
+import HmFloor from './components/HmFloor.vue'
 
 // 注册全局组件
+Vue.component('hm-comments', HmComments)
 Vue.component('hm-header', HmHeader)
 Vue.component('hm-logo', HmLogo)
 Vue.component('hm-button', HmButton)
 Vue.component('hm-post', HmPost)
+Vue.component('hm-floor', HmFloor)
 
 // 按需引入组件
 import {
