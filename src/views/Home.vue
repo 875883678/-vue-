@@ -9,10 +9,15 @@
         搜索新闻
       </div>
       <div class="right">
-        <i class="iconfont iconwode "></i>
+        <i class="iconfont iconwode " @click="$router.push('/user')"></i>
       </div>
     </div>
     <!-- tab栏 -->
+    <van-sticky z-index="999">
+      <div class="container" @click="$router.push('/tabsedit')">
+        <i class="iconfont iconjiantou1"></i>
+      </div>
+    </van-sticky>
     <!-- 下拉刷新组件 -->
     <van-pull-refresh v-model="isRefreshing" @refresh="onRefresh">
       <!-- list列表分页器 -->
@@ -27,6 +32,7 @@
         <van-tabs v-model="active" sticky>
           <van-tab :title="item.name" v-for="item in tabsList" :key="item.id">
             <hm-post
+              @click="$router.push(`/detail/${post.id}`)"
               v-for="(post, index) in postList"
               :key="index"
               :post="post"
@@ -132,6 +138,18 @@ export default {
 <style lang="less" scoped>
 /deep/ .van-tabs__nav {
   background-color: #ddd;
+  margin-right: 40px;
+}
+.container {
+  width: 40px;
+  height: 44px;
+  background-color: #ddd;
+  text-align: center;
+  line-height: 44px;
+  font-weight: 700;
+  position: absolute;
+  right: 0;
+  z-index: 999;
 }
 .head {
   height: 50px;

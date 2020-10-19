@@ -9,6 +9,8 @@ import MyFollow from '../views/MyFollow.vue'
 import MyComments from '../views/MyComments.vue'
 import MyStar from '../views/MyStar.vue'
 import Home from '../views/Home.vue'
+import TabsEdit from '../views/TabsEdit.vue'
+import DeTail from '../views/DeTail.vue'
 import { Toast } from 'vant'
 
 Vue.use(VueRouter)
@@ -26,6 +28,8 @@ const router = new VueRouter({
     { path: '/mycomments', component: MyComments },
     { path: '/mystar', component: MyStar },
     { path: '/home', component: Home },
+    { path: '/tabsedit', component: TabsEdit },
+    { path: '/detail/:id', component: DeTail },
   ],
 })
 
@@ -69,5 +73,11 @@ router.beforeEach((to, from, next) => {
     next()
   }
 })
+
+// 跳转报错的问题
+const originalPush = VueRouter.prototype.push
+VueRouter.prototype.push = function push(location) {
+  return originalPush.call(this, location).catch(err => err)
+}
 
 export default router

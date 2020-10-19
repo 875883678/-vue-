@@ -1,5 +1,5 @@
 <template>
-  <div class="hm-post">
+  <div class="hm-post" @click="fn">
     <!-- 视频 -->
     <div class="radio" v-if="post.type == 2">
       <div class="title line2">{{ post.title }}</div>
@@ -73,6 +73,9 @@ export default {
       } else {
         return this.$axios.defaults.baseURL + url
       }
+    },
+    fn() {
+      this.$emit('click')
     },
   },
 }

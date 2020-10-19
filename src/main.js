@@ -37,6 +37,7 @@ import {
   Tab,
   Tabs,
   PullRefresh,
+  Sticky,
 } from 'vant'
 
 // 输入框组件
@@ -61,6 +62,8 @@ Vue.use(Tab)
 Vue.use(Tabs)
 // 下拉刷新组件
 Vue.use(PullRefresh)
+// 粘性布局组件
+Vue.use(Sticky)
 
 // 注册全局过滤器
 // 引入moment模块
