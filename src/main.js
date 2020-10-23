@@ -42,6 +42,7 @@ import {
   Tabs,
   PullRefresh,
   Sticky,
+  Icon,
 } from 'vant'
 
 // 输入框组件
@@ -68,6 +69,8 @@ Vue.use(Tabs)
 Vue.use(PullRefresh)
 // 粘性布局组件
 Vue.use(Sticky)
+// 图标组件
+Vue.use(Icon)
 
 // 注册全局过滤器
 // 引入moment模块
@@ -107,6 +110,11 @@ axios.interceptors.response.use(res => {
   }
   return res
 })
+
+// 创建一个detail comments  floor都能访问到的事件总线
+const bus = new Vue()
+// 挂载到vue原型上
+Vue.prototype.$bus = bus
 
 new Vue({
   router,

@@ -46,6 +46,7 @@
 
 <script>
 export default {
+  name: 'home',
   data() {
     return {
       active: 1, //  tab栏当前显示页面的索引
@@ -61,9 +62,29 @@ export default {
   created() {
     this.getTabsList()
   },
+  // keep-alive 缓存组件激活时调用
+  // 切换显示时触发
+  activated() {
+    let activeTabs = JSON.parse(localStorage.getItem('activeTabs'))
+    if (activeTabs) {
+      this.tabsList = activeTabs
+      this.active = 1
+      this.getPostList(this.tabsList[this.active].id)
+      return
+    }
+  },
   methods: {
     // 获取tab栏目列表
     async getTabsList() {
+      // 先从本地存储中获取
+      let activeTabs = JSON.parse(localStorage.getItem('activeTabs'))
+      if (activeTabs) {
+        this.tabsList = activeTabs
+        this.active = 1
+        this.getPostList(this.tabsList[this.active].id)
+        return
+      }
+
       let res = await this.$axios.get('/category')
       console.log('tab列表', res.data)
       this.tabsList = res.data.data

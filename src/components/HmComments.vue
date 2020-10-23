@@ -10,7 +10,9 @@
           <div class="nickname">{{ comment.user.nickname }}</div>
           <span>{{ comment.create_date | date }}</span>
         </div>
-        <div class="right">回复</div>
+        <div class="right" @click="reply(comment.id, comment.user.nickname)">
+          回复
+        </div>
       </div>
       <!-- 楼层 -->
       <hm-floor
@@ -35,6 +37,10 @@ export default {
       } else {
         return num
       }
+    },
+    //点击评论
+    reply(replyId, replyName) {
+      this.$bus.$emit('reply', replyId, replyName)
     },
   },
 }

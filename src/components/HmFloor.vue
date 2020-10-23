@@ -11,7 +11,9 @@
         <div class="center">
           {{ parent.create_date | date('YYYY-MM-DD hh:mm:ss') }}
         </div>
-        <div class="right">回复</div>
+        <div class="right" @click="reply(parent.id, parent.user.nickname)">
+          回复
+        </div>
       </div>
       <div class="content">
         {{ parent.content }}
@@ -24,6 +26,12 @@
 export default {
   props: ['parent', 'count'],
   name: 'hm-floor',
+  methods: {
+    //点击评论
+    reply(replyId, replyName) {
+      this.$bus.$emit('reply', replyId, replyName)
+    },
+  },
 }
 </script>
 
