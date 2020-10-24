@@ -11,6 +11,7 @@ import MyStar from '../views/MyStar.vue'
 import Home from '../views/Home.vue'
 import TabsEdit from '../views/TabsEdit.vue'
 import DeTail from '../views/DeTail.vue'
+import Search from '../views/Search.vue'
 import { Toast } from 'vant'
 
 Vue.use(VueRouter)
@@ -30,6 +31,7 @@ const router = new VueRouter({
     { path: '/home', component: Home },
     { path: '/tabsedit', component: TabsEdit },
     { path: '/detail/:id', component: DeTail },
+    { path: '/search', component: Search },
   ],
 })
 
